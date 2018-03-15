@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N gauss-parallel
+#PBS -l select=1:ncpus=24:mpiprocs=24:mem=16gb:interconnect=mx
+#PBS -l walltime=00:30:00
+#PBS -j oe
+source /etc/profile.d/modules.sh
+module purge
+module add openmpi/1.6.4 gcc/4.4
+NCORES=4
+cd /home/kanjam/ece473/khayam_anjam_HW04/
+mpiexec -n $NCORES ./Gauss-Parallel  MatrixA VectorB MatrixU VectorY 1> output/${NCORES}_cores.o 2> output/${NCORES}_cores.e
+

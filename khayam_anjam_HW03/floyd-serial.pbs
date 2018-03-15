@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -N floyd-serial
+#PBS -l select=1:ncpus=1:mpiprocs=1:mem=2gb:interconnect=mx
+#PBS -l walltime=00:50:00
+#PBS -j oe
+source /etc/profile.d/modules.sh
+module purge
+module add openmpi/1.6.4 gcc/4.4
+NCORES=1
+cd /home/kanjam/ece473/khayam_anjam_HW03/
+mpiexec -n $NCORES ./floyd-serial -i in.dat -o out.seq 1 > output/${NCORES}_cores.o 2> output/${NCORES}_cores.e

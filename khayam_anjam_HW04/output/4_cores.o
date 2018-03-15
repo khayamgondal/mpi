@@ -1,0 +1,8 @@
+Reading matrix and vector ... done 
+Gauss Elmination ... done 
+Writing matrix and vector back to file ... done 
+gauss-parallel execution time:
+	n = 5000 nodes
+	p = 4 cpus
+	ptime = 343.036821 (sec)
+	ftime = 338.141683 (sec)
